@@ -84,12 +84,18 @@ button:hover{
 }
 
 /* MURCIELAGOS */
-.bat{
-    position:absolute;
-    width:40px;
-    animation: volar 10s linear infinite;
+.murcielagos{
+    position:fixed;
+    top:20%;
+    left:-100px;
+    font-size:40px;
+    animation: volarEmoji 15s linear infinite;
 }
 
+@keyframes volarEmoji{
+    from{left:-200px;}
+    to{left:110%;}
+}
 @keyframes volar{
     from{left:-50px;}
     to{left:110%;}
@@ -156,9 +162,9 @@ button:hover{
 </div>
 
 <!-- MURCIELAGOS -->
-<img src="https://i.imgur.com/Xa6X2Gk.png" class="bat" style="top:10%;">
-<img src="https://i.imgur.com/Xa6X2Gk.png" class="bat" style="top:40%; animation-duration:15s;">
-<img src="https://i.imgur.com/Xa6X2Gk.png" class="bat" style="top:70%; animation-duration:12s;">
+<div class="murcielagos">
+    🦇 🦇 🦇
+</div>
 
 <!-- VELAS -->
 <div class="velas">
