@@ -1,0 +1,211 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Mis XV - Noche Eterna</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;700&family=Great+Vibes&display=swap" rel="stylesheet">
+
+<style>
+
+body{
+    margin:0;
+    background:black;
+    color:white;
+    text-align:center;
+    font-family:'Cinzel', serif;
+    overflow:hidden;
+}
+
+/* PORTADA LIBRO */
+.portada{
+    position:fixed;
+    width:100%;
+    height:100vh;
+    background:black;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    z-index:10;
+    transition:1.5s;
+}
+
+.portada h1{
+    font-size:3rem;
+    color:crimson;
+    cursor:pointer;
+    animation: latido 2s infinite;
+}
+
+@keyframes latido{
+    0%{transform:scale(1);}
+    50%{transform:scale(1.1);}
+    100%{transform:scale(1);}
+}
+
+/* CONTENIDO */
+.contenido{
+    padding:60px 20px;
+    opacity:0;
+    transition:2s;
+}
+
+h2{
+    font-family:'Great Vibes', cursive;
+    font-size:3rem;
+    color:crimson;
+}
+
+.info{
+    margin:15px 0;
+    font-size:1.2rem;
+}
+
+.countdown{
+    font-size:2rem;
+    margin:30px 0;
+    color:crimson;
+}
+
+button{
+    background:crimson;
+    color:white;
+    border:none;
+    padding:15px 30px;
+    margin:10px;
+    cursor:pointer;
+    transition:0.3s;
+}
+
+button:hover{
+    background:darkred;
+    transform:scale(1.1);
+}
+
+/* MURCIELAGOS */
+.bat{
+    position:absolute;
+    width:40px;
+    animation: volar 10s linear infinite;
+}
+
+@keyframes volar{
+    from{left:-50px;}
+    to{left:110%;}
+}
+
+/* VELAS */
+.velas{
+    position:fixed;
+    bottom:0;
+    width:100%;
+    display:flex;
+    justify-content:space-around;
+}
+
+.vela{
+    width:10px;
+    height:80px;
+    background:white;
+    position:relative;
+}
+
+.flama{
+    width:15px;
+    height:20px;
+    background:orange;
+    border-radius:50%;
+    position:absolute;
+    top:-20px;
+    left:-2px;
+    animation: fuego 0.5s infinite alternate;
+}
+
+@keyframes fuego{
+    from{transform:scale(1);}
+    to{transform:scale(1.2);}
+}
+
+</style>
+</head>
+
+<body>
+
+<!-- PORTADA -->
+<div class="portada" onclick="abrir()">
+    <h1>🖤 Toca para abrir mi invitación 🖤</h1>
+</div>
+
+<!-- CONTENIDO -->
+<div class="contenido" id="contenido">
+
+    <h2>Mis XV</h2>
+
+    <div class="info">Salwa Giha</div>
+    <div class="info">20 de Marzo 2026</div>
+    <div class="info">8:30 PM</div>
+    <div class="info">Restaurante Balthazar- Salón Babilonia</div>
+    <div class="info">Cra 51B No. 76-163</div>
+
+    <div class="countdown" id="countdown"></div>
+
+    <button onclick="confirmar()">Confirmar Asistencia</button>
+    <button onclick="musica()">Activar Música</button>
+
+</div>
+
+<!-- MURCIELAGOS -->
+<img src="https://i.imgur.com/Xa6X2Gk.png" class="bat" style="top:10%;">
+<img src="https://i.imgur.com/Xa6X2Gk.png" class="bat" style="top:40%; animation-duration:15s;">
+<img src="https://i.imgur.com/Xa6X2Gk.png" class="bat" style="top:70%; animation-duration:12s;">
+
+<!-- VELAS -->
+<div class="velas">
+    <div class="vela"><div class="flama"></div></div>
+    <div class="vela"><div class="flama"></div></div>
+    <div class="vela"><div class="flama"></div></div>
+</div>
+
+<audio id="audio" loop>
+<source src="https://www.bensound.com/bensound-music/bensound-slowmotion.mp3" type="audio/mp3">
+</audio>
+
+<script>
+
+function abrir(){
+    document.querySelector(".portada").style.opacity="0";
+    setTimeout(()=>{
+        document.querySelector(".portada").style.display="none";
+        document.getElementById("contenido").style.opacity="1";
+    },1500);
+}
+
+let fecha = new Date("March 20, 2026 20:30:00").getTime();
+
+setInterval(function(){
+    let ahora = new Date().getTime();
+    let distancia = fecha - ahora;
+
+    let dias = Math.floor(distancia/(1000*60*60*24));
+    let horas = Math.floor((distancia%(1000*60*60*24))/(1000*60*60));
+    let minutos = Math.floor((distancia%(1000*60*60))/(1000*60));
+    let segundos = Math.floor((distancia%(1000*60))/1000);
+
+    document.getElementById("countdown").innerHTML =
+    dias+"d "+horas+"h "+minutos+"m "+segundos+"s";
+
+},1000);
+
+function confirmar(){
+    window.open("https://wa.me/573137730116?text=Confirmo mi asistencia a los XV 🖤");
+}
+
+function musica(){
+    document.getElementById("audio").play();
+}
+
+</script>
+
+</body>
+</html>
