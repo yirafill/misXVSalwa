@@ -142,7 +142,7 @@ button:hover{
 <div class="portada" onclick="abrir()">
     <h1>🖤 Toca para abrir mi invitación 🖤</h1>
 </div>
-
+<button onclick="musica()">Abrir invitación</button>
 <!-- CONTENIDO -->
 <div class="contenido" id="contenido">
 
@@ -153,11 +153,13 @@ button:hover{
     <div class="info">8:30 PM</div>
     <div class="info">Restaurante Balthazar- Salón Babilonia</div>
     <div class="info">Cra 51B No. 76-163</div>
-
+    <div class="info">Vestido Cóctel</div>
+    
     <div class="countdown" id="countdown"></div>
 
     <button onclick="confirmar()">Confirmar Asistencia</button>
     <button onclick="musica()">Activar Música</button>
+    
 
 </div>
 
@@ -215,7 +217,8 @@ function confirmar(){
 }
 
 function musica(){
-    document.getElementById("audio").play();
+    const sonido = document.getElementById("audio");
+    sonido.play();
 }
 
 </script>
