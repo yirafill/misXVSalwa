@@ -173,13 +173,20 @@ button:hover{
     <div class="vela"><div class="flama"></div></div>
 </div>
 
-<audio id="audio" loop>
-<source src="https://www.bensound.com/bensound-music/bensound-slowmotion.mp3" type="audio/mp3">
+<audio id="audio" loop preload="auto">
+    <source src="audio/audio.mp3" type="audio/mpeg">
 </audio>
 
 <script>
 
 function abrir(){
+    let musica = document.getElementById("audio");
+
+    musica.muted = false;
+    musica.play().catch(error => {
+        console.log("Autoplay bloqueado por el navegador");
+    });
+
     document.querySelector(".portada").style.opacity="0";
     setTimeout(()=>{
         document.querySelector(".portada").style.display="none";
